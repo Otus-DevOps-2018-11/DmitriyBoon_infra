@@ -3,11 +3,7 @@ sudo: required
 language: bash
 before_install:
 - curl https://raw.githubusercontent.com/express42/otus-homeworks/2018-11/run.sh | 
-<<<<<<< HEAD
   bash
-=======
-bash
->>>>>>> 1f0fa5bef8c631ab7bd4f1204d6d7723476bbbcf
 notifications:
   slack:
     rooms:
