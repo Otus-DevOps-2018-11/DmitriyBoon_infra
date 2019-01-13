@@ -1,0 +1,6 @@
+{
+"type" : "googlecompute"
+"project_id": "infra-devops",
+"source_image_family": "redhat"
+"zone" : "ws-central-1b"
+}
