@@ -6,6 +6,10 @@ variable region {
   description = "Region"
   default     = "europe-west1"
 }
+variable zone {
+  description = "zone"
+  default     = "europe-west1-b"
+}
 
 variable public_key_path {
   description = "/root/.ssh/appuser.pub"
@@ -19,5 +23,13 @@ variable disk_image {
 }
 
 variable "node_count" {
-  default = "2"
+  default = "1"
  }
+variable app_disk_image {
+  description = "Disk image for reddit app"
+  default = "reddit-base-1548510468"
+  }
+variable db_disk_image {
+  description = "Disk image for reddit db"
+  default = "reddit-base-1548510831"
+}
