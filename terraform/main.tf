@@ -16,10 +16,10 @@ module "db"  {
   zone            = "${var.zone}"
   db_disk_image   = "${var.db_disk_image}"
 }
-module "vpc" {
-  source        = "modules/vpc"
-  source_ranges = "${var.source_ranges}"
-}
+# module "vpc" {
+#   source        = "modules/vpc"
+#   source_ranges = "${var.source_ranges}"
+# }
 
 # resource "google_compute_instance" "app" {
 #   count        = "${var.node_count}"
