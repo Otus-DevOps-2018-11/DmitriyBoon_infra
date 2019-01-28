@@ -6,10 +6,12 @@ variable region {
   description = "Region"
   default     = "europe-west1"
 }
+
 # variable zone {
 #   description = "zone"
 #   default     = "europe-west1-b"
 # }
+
 
 # variable public_key_path {
 #   description = "/root/.ssh/appuser.pub"
@@ -18,9 +20,11 @@ variable region {
 #   description = "/root/.ssh/appuser"
 # }
 
+
 # variable disk_image {
 #   description = "reddit-base-1547371888"
 # }
+
 
 # variable "node_count" {
 #   default = "1"
@@ -34,7 +38,9 @@ variable region {
 #   default = "reddit-base-1548510831"
 # }
 
+
 # variable source_ranges {
 #   description = "Allowed IP addresses"
 #   default     = ["0.0.0.0/0"]
 # }
+

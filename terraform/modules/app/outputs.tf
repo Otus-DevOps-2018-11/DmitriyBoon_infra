@@ -5,4 +5,3 @@ output "apps_external_ip" {
 output "apps_local_ip" {
   value = "${google_compute_instance.app.*.network_interface.0.address}"
 }
-
