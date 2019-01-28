@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "terraform-reddit-stage-${var.project}"
+    bucket = "terraform-reddit-stage-infra-007"
     prefix = "reddit/stage"
   }
 }
