@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "terraform-reddit-storage-bucket"
+    bucket = "terraform-reddit-prod-${var.project}"
     prefix = "reddit/prod"
   }
 }

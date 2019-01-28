@@ -12,3 +12,7 @@ variable app_disk_image {
   description = "Disk image for reddit app"
   default = "reddit-base-1548510468"
   }
+  variable environment {
+  description = "Environment: prod, stage, etc"
+  default     = "prod"
+}
