@@ -6,7 +6,10 @@ variable region {
   description = "Region"
   default     = "europe-west1"
 }
-
+# variable "default_acl" {
+#   description = "Configure this ACL to be the default ACL."
+#   default     = "private"
+# }
 # variable zone {
 #   description = "zone"
 #   default     = "europe-west1-b"
