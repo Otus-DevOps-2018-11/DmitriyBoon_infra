@@ -18,6 +18,20 @@ resource "google_compute_instance" "db" {
   metadata {
     ssh-keys = "appuser:${file(var.public_key_path)}"
   }
+provisioner "file" {
+    source      = "files/puma.service"
+    destination = "/tmp/puma.service"
+  }
+  provisioner "file" {
+    source      = "files/deploy.sh"
+    destination = "/tmp/deploy.sh"
+  }
+    provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/deploy.sh",
+      "/tmp/deploy.sh ${join("\n", var.db_local_ip)}",
+    ]
+  }
 }
 
 resource "google_compute_firewall" "firewall_mongo" {
