@@ -1,10 +1,19 @@
 resource "google_compute_instance" "db" {
+<<<<<<< HEAD
   name         = "reddit-db-${var.environment}"
   machine_type = "f1-micro"
   zone         = "${var.zone}"
   tags         = ["reddit-db"]
 
   boot_disk {
+=======
+  name = "reddit-db"
+  machine_type = "f1-micro"
+  zone = "${var.zone}"
+  tags = ["reddit-db"]
+
+boot_disk {
+>>>>>>> 97482f171291508cc05def9f3f52496d04649bc9
     initialize_params {
       image = "${var.db_disk_image}"
     }
@@ -45,4 +54,8 @@ resource "google_compute_firewall" "firewall_mongo" {
 
   target_tags = ["reddit-db"]
   source_tags = ["reddit-app"]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 97482f171291508cc05def9f3f52496d04649bc9
