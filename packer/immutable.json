@@ -25,7 +25,7 @@
 	{
            "type": "file",
            "source": "files/puma.service",
-           "destination": "files/puma.service"
+           "destination": "/etc/systemd/system/puma.service"
         },
 	{
             "type": "shell",
