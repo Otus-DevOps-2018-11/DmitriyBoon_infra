@@ -8,7 +8,7 @@ module "storage-bucket" {
   source  = "SweetOps/storage-bucket/google"
   version = "0.1.1"
 
-  name = ["terraform-reddit-bucket-infra-007"]
+  name = ["storage-bucket-prod-infra-007", "storage-bucket-stage-infra-007"]
 }
 
 output storage-bucket_url {
