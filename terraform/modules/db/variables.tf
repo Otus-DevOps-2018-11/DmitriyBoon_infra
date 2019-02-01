@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> 97482f171291508cc05def9f3f52496d04649bc9
 variable zone {
   description = "zone"
   default     = "europe-west1-b"
