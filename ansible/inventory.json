@@ -1,0 +1,1 @@
+{"app":{"hosts":["app.host"],"vars":{}},"db":{"vars":{},"hosts":["mongodb.host"]},"_meta":{"hostvars":{"mongodb.host":{"ansible_host":"35.195.59.44"},"app.host":{"ansible_host":"35.195.59.44"}}}}
