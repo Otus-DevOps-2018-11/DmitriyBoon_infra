@@ -1,7 +1,8 @@
 terraform {
   backend "gcs" {
     bucket    = "storage-bucket-stage-infra-007"
-    prefix    = "terraform.tfstate"
+    prefix    = "stage"
     project   = "infra-228011"
   }
 }
+
