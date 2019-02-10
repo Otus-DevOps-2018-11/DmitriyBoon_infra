@@ -4,11 +4,12 @@
   become: yes
   tags: install-ruby
   tasks:
+  - name: repair apt
+    raw: sudo dpkg --configure -a
   - name: install packages
     apt: 
       name: "{{ item }}"
       state: present
-      update_cache: yes
     loop:
       - ruby-full
       - ruby-bundler
