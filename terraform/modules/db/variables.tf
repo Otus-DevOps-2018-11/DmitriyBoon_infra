@@ -14,7 +14,7 @@ variable db_disk_image {
 
 variable environment {
   description = "Environment: prod, stage, etc"
-  default     = "prod"
+  default     = "stage"
 }
 
 variable db_local_ip {

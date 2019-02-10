@@ -14,10 +14,10 @@ variable app_disk_image {
 
 variable environment {
   description = "Environment: prod, stage, etc"
-  default     = "prod"
+  default     = "stage"
 }
 
-variable db_local_ip {
+variable app_local_ip {
   type        = "list"
   description = "DB local ip address"
   default     = ["127.0.0.1"]

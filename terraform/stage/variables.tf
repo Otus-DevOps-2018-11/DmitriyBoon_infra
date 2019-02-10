@@ -21,7 +21,7 @@ variable private_key_path {
 }
 
 variable disk_image {
-  description = "reddit-base-1547371888"
+  description = "/root/.ssh/appuser.pub"
 }
 
 variable "node_count" {

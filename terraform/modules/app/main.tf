@@ -35,7 +35,7 @@ resource "google_compute_instance" "app" {
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/deploy.sh",
-      "/tmp/deploy.sh ${join("\n", var.db_local_ip)}",
+      "/tmp/deploy.sh ${join("\n", var.app_local_ip)}",
     ]
   }
 }
