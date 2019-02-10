@@ -2,6 +2,7 @@ variable zone {
   description = "zone"
   default     = "europe-west1-b"
 }
+
 variable public_key_path {
   description = "/root/.ssh/appuser.pub"
 }
@@ -13,8 +14,9 @@ variable db_disk_image {
 
 variable environment {
   description = "Environment: prod, stage, etc"
-  default     = "prod"
+  default     = "stage"
 }
+
 variable db_local_ip {
   type        = "list"
   description = "DB local ip address"
