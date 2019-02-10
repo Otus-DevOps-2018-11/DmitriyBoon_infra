@@ -12,7 +12,7 @@
   # Подключаем репозиторий с пакетами mongodb
   - name: Add APT repository
     apt_repository:
-      repo: deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.2 multiverse
+      repo: deb http://repo.mongodb.org/apt/ubuntu/dists/xenial/mongodb-org/3.2/multiverse/
       state: present
 
   # Выполним установку пакета
