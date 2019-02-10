@@ -27,11 +27,11 @@
           "zone": "{{ user `zone` }}"
       }
   ],
-  
+
   "provisioners": [
     {
     "type": "ansible",
-    "playbook_file": "ansible/packer_app.yml"
+    "playbook_file": "../ansible/packer_app.yml"
     }
     ]
 }
