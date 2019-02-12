@@ -22,3 +22,6 @@ variable app_local_ip {
   description = "DB local ip address"
   default     = ["127.0.0.1"]
 }
+# variable db_address {}
+
+variable private_key_path {}
