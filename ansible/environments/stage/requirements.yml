@@ -1,5 +1,5 @@
 - src: jdauphant.nginx
   version: v2.21.1
-- src: https://github.com/DmitriyBoon/otus_ansible_role_db
+- src: https://github.com/jdauphant/ansible-role-nginx
   name: db
 # bug travice
