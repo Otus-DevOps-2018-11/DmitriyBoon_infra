@@ -1,5 +1,5 @@
 ---
-app_db_host: "{{ hostvars[groups['db'][0]]['ansible_default_ipv4']['address'] }}"
+app_db_host: "{{ hostvars['reddit-db-prod-01']['gce_private_ip'] }}"
 
 # proxy
 nginx_sites:
