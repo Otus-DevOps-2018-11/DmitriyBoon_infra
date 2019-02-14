@@ -6,3 +6,4 @@
   roles:
    - { role: jdauphant.nginx, become: yes}
    - app
+   
