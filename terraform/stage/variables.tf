@@ -28,6 +28,16 @@ variable "node_count" {
   default = "1"
 }
 
+variable count_app {
+  description = "Count App instances"
+  default     = "1"
+}
+
+variable count_db {
+  description = "Count DB instances"
+  default     = "1"
+}
+
 variable app_disk_image {
   description = "Disk image for reddit app"
   default     = "reddit-base-1548510468"

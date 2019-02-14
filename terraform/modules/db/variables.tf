@@ -22,3 +22,11 @@ variable db_local_ip {
   description = "DB local ip address"
   default     = ["127.0.0.1"]
 }
+
+variable count_db {
+  description = "Count DB instances"
+  default     = "1"
+}
+variable private_key_path {
+  description = "Path to the private key used for ssh access"
+}
