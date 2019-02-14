@@ -1,5 +1,5 @@
 resource "google_compute_instance" "app" {
-  name         = "reddit-app-${var.environment}-${count.index} }"
+  name         = "reddit-app-${var.environment}-${count.index}"
   count        = "${var.count_app}"
   machine_type = "f1-micro"
   zone         = "${var.zone}"
@@ -59,11 +59,11 @@ resource "google_compute_instance" "app" {
 #   target_tags   = ["reddit-app"]
 # }
 resource "google_compute_address" "app_ip" {
-  name = "reddit-app-ip"
+  name = "reddit-app-ip-${var.environment}"
 }
 
 resource "google_compute_firewall" "firewall_puma" {
-  name    = "allow-puma-default"
+  name    = "allow-puma-default-${var.environment}"
   network = "default"
 
   allow {
