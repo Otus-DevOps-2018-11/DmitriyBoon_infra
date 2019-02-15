@@ -5,5 +5,5 @@ variable source_ranges {
 
 variable environment {
   description = "Environment: prod, stage, etc"
-  default     = "prod"
+  default     = "stage"
 }

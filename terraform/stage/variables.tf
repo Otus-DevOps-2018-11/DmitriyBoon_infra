@@ -20,12 +20,22 @@ variable private_key_path {
   description = "/root/.ssh/appuser"
 }
 
-variable disk_image {
-  description = "/root/.ssh/appuser.pub"
-}
+# variable disk_image {
+#   description = "/root/.ssh/appuser.pub"
+# }
 
 variable "node_count" {
   default = "1"
+}
+
+variable count_app {
+  description = "Count App instances"
+  default     = "1"
+}
+
+variable count_db {
+  description = "Count DB instances"
+  default     = "1"
 }
 
 variable app_disk_image {

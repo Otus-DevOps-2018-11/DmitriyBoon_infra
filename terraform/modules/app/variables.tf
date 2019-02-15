@@ -22,3 +22,16 @@ variable app_local_ip {
   description = "DB local ip address"
   default     = ["127.0.0.1"]
 }
+# variable db_address {}
+variable db_local_ip {
+  type        = "list"
+  description = "DB local ip address"
+  default     = ["127.0.0.1"]
+}
+
+variable count_app {
+  description = "Count App instances"
+  default     = "1"
+}
+
+variable private_key_path {}

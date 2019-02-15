@@ -1,5 +1,6 @@
 resource "google_compute_instance" "db" {
-  name         = "reddit-db-${var.environment}"
+  name         = "reddit-db-${var.environment}-${count.index}"
+  count        = "${var.count_db}"
   machine_type = "f1-micro"
   zone         = "${var.zone}"
   tags         = ["reddit-db"]
@@ -19,22 +20,22 @@ resource "google_compute_instance" "db" {
     ssh-keys = "appuser:${file(var.public_key_path)}"
   }
 
-  provisioner "file" {
-    source      = "files/puma.service"
-    destination = "/tmp/puma.service"
-  }
+#   provisioner "file" {
+#     source      = "files/puma.service"
+#     destination = "/tmp/puma.service"
+#   }
 
-  provisioner "file" {
-    source      = "files/deploy.sh"
-    destination = "/tmp/deploy.sh"
-  }
+#   provisioner "file" {
+#     source      = "files/deploy.sh"
+#     destination = "/tmp/deploy.sh"
+#   }
 
-  provisioner "remote-exec" {
-    inline = [
-      "chmod +x /tmp/deploy.sh",
-      "/tmp/deploy.sh ${join("\n", var.db_local_ip)}",
-    ]
-  }
+#   provisioner "remote-exec" {
+#     inline = [
+#       "chmod +x /tmp/deploy.sh",
+#       "/tmp/deploy.sh ${join("\n", var.db_local_ip)}",
+#     ]
+#   }
 }
 
 resource "google_compute_firewall" "firewall_mongo" {
