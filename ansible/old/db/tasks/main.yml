@@ -1,9 +1,9 @@
 ---
-# tasks file for app
+# tasks file for db
 - name: Show info about the env this host belongs to
   debug:
    msg: "This host is in {{ env }} environment!!!"
 
-- import_tasks: ruby.yml
-  tags: ruby
-- include_tasks: puma.yml
+- import_tasks: install_mongo.yml
+  tags: mongo_install
+- include_tasks: config_mongo.yml
