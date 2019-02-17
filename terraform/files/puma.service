@@ -5,9 +5,11 @@ After=network.target
 [Service]
 Type=simple
 User=appuser
+Group=appuser
 WorkingDirectory=/home/appuser/reddit
 ExecStart=/bin/bash -lc 'puma'
-Restart=always
+Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target

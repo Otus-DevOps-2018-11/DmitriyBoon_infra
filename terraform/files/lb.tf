@@ -1,3 +1,5 @@
+# https://www.terraform.io/docs/providers/google/r/compute_forwarding_rule.html
+
 resource "google_compute_forwarding_rule" "default" {
   description           = "Forward reddit-app requests"
   name                  = "redditapp"

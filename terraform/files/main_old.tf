@@ -1,39 +1,39 @@
-resource "google_compute_instance" "app" {
-  count = "${var.count_app}"
+provider "google" {
+  version = "1.20.0"
+  project = "${var.project}"
+  region  = "${var.region}"
+}
 
-  # модификатор 0 + индекс (03d разрядность 3)
-  name         = "reddit-app-${var.environment}-${format("%02d", count.index+1)}"
+resource "google_compute_project_metadata_item" "default" {
+  key   = "ssh-keys"
+  value = "appuser:${file(var.public_key_path)}\nappuser1:${file(var.public_key_path)}\nappuser2:${file(var.public_key_path)}\nappuser3:${file(var.public_key_path)}\nappuser4:${file(var.public_key_path)}"
+}
+
+resource "google_compute_instance" "app" {
+  count = "${var.count}"
+  name  = "reddit-app${count.index+1}"
+
+  #name = "reddit-app"
+
   machine_type = "g1-small"
   zone         = "${var.zone}"
   tags         = ["reddit-app"]
-
   # определение загрузочного диска
   boot_disk {
     initialize_params {
-      image = "${var.app_disk_image}"
+      image = "${var.disk_image}"
     }
   }
-
-  labels {
-    group = "app"
-  }
-
-  metadata {
-    ssh-keys = "appuser:${file(var.public_key_path)}"
-  }
-
   # определение сетевого интерфейса
   network_interface {
     # сеть, к которой присоединить данный интерфейс
     network = "default"
 
-    # использовать static IP для доступа из Интернет
+    # использовать ephemeral IP для доступа из Интернет
     access_config = {
       nat_ip = "${google_compute_address.app_ip.address}"
     }
   }
-
-  /*
   connection {
     type        = "ssh"
     user        = "appuser"
@@ -41,30 +41,20 @@ resource "google_compute_instance" "app" {
     private_key = "${file(var.private_key_path)}"
   }
   provisioner "file" {
-    source      = "../modules/app/files/puma.service"
+    source      = "files/puma.service"
     destination = "/tmp/puma.service"
   }
-  provisioner "file" {
-    source      = "../modules/app/files/deploy.sh"
-    destination = "/tmp/deploy.sh"
-  }
-  # http://thecloudwoman.com/2017/05/how-to-use-a-terraform-list-variable/
   provisioner "remote-exec" {
-    inline = [
-      "chmod +x /tmp/deploy.sh",
-      "/tmp/deploy.sh ${join("\n", var.db_local_ip)}",
-    ]
+    script = "files/deploy.sh"
   }
-  */
 }
 
 resource "google_compute_address" "app_ip" {
-  name = "reddit-app-ip-${var.environment}"
+  name = "reddit-app-ip"
 }
 
-/*
 resource "google_compute_firewall" "firewall_puma" {
-  name = "allow-puma-default-${var.environment}"
+  name = "allow-puma-default"
 
   # Название сети, в которой действует правило
   network = "default"
@@ -81,22 +71,16 @@ resource "google_compute_firewall" "firewall_puma" {
   # Правило применимо для инстансов с перечисленными тэгами
   target_tags = ["reddit-app"]
 }
-*/
-resource "google_compute_firewall" "firewall_nginx_proxy" {
-  name = "allow-nginx-proxy-${var.environment}"
 
-  # Название сети, в которой действует правило
-  network = "default"
+resource "google_compute_firewall" "firewall_ssh" {
+  name        = "default-allow-ssh"
+  network     = "default"
+  description = "Allow SSH from anywhere"
 
-  # Какой доступ разрешить
   allow {
     protocol = "tcp"
-    ports    = ["80"]
+    ports    = ["22"]
   }
 
-  # Каким адресам разрешаем доступ
   source_ranges = ["0.0.0.0/0"]
-
-  # Правило применимо для инстансов с перечисленными тэгами
-  target_tags = ["reddit-app"]
 }

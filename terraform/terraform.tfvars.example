@@ -1,9 +1,9 @@
-project = "your_project_id"
+project = "infra-226118"
 public_key_path = "~/.ssh/appuser.pub"
 private_key_path = "~/.ssh/appuser"
 disk_image = "reddit-base"
-region = "europe-west1"
-zone = "europe-west1-b"
+region = "europe-north1"
+zone = "europe-north1-b"
 count_app = "1"
 count_db = "1"
 source_ranges = ["0.0.0.0/0"]
