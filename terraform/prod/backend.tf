@@ -1,7 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket  = "storage-bucket-prod-infra-007"
-    prefix  = "terraform.tfstate"
-    project = "infra-228011"
+    bucket = "yogsottot-terraform-reddit-storage-bucket"
+    prefix = "reddit/prod"
   }
 }

@@ -1,20 +1,24 @@
 variable zone {
-  description = "zone"
-  default     = "europe-west1-b"
+  description = "Zone"
+  default     = "europe-north1-b"
 }
 
 variable public_key_path {
-  description = "/root/.ssh/appuser.pub"
+  description = "Path to the public key used for ssh access"
+}
+
+variable private_key_path {
+  description = "Path to the private key used for ssh access"
+}
+
+variable count_db {
+  description = "Count DB instances"
+  default     = "1"
 }
 
 variable db_disk_image {
   description = "Disk image for reddit db"
-  default     = "reddit-base-1548510831"
-}
-
-variable environment {
-  description = "Environment: prod, stage, etc"
-  default     = "stage"
+  default     = "reddit-db"
 }
 
 variable db_local_ip {
@@ -23,10 +27,7 @@ variable db_local_ip {
   default     = ["127.0.0.1"]
 }
 
-variable count_db {
-  description = "Count DB instances"
-  default     = "1"
-}
-variable private_key_path {
-  description = "Path to the private key used for ssh access"
+variable environment {
+  description = "Environment: prod, stage, etc"
+  default     = "prod"
 }
